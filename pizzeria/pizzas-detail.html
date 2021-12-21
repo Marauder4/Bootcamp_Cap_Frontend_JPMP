@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+    <link rel="stylesheet" href="static/styles/pizzeria.css">
+</head>
+<body class="app-body">
+    <nav class="app-nav">
+        <div class="app-nav__logo">
+            <img src="static/images/pizzeria_128x192.jpg" alt="Pizzeria sign" width="128" height="192">
+            <h1>Pizzeria</h1>
+        </div>
+        <p>List of pizzas</p>
+        <p>Add pizza</p>
+        <p>Logout</p>
+    </nav>
+    <section class="pizza-detail">
+        <div class="pizza-detail__pizza-info">
+            <div class="pizza-list__pizza">
+                <h3>Pizza1</h6>
+                <img src="static/images/pizza_160x106.jpg" alt="Pizza image" width="160" height="106">
+                <p>Price</p>
+            </div>
+            <div class="pizza-ingredients">
+                <h3>Ingredients</h2>
+                <p>Ingredient 1: price 1</p>
+                <p>Ingredient 2: price 2</p>
+            </div>
+        </div>
+        <form class="pizza-detail__comment-form" action="some action" method="post">
+            <h2>Leave your comment</h2>
+            <input type="number" placeholder="Score" min="0" max="10">
+            <textarea placeholder="Your review."></textarea>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="pizza-detail__comment-list">
+            <h2>Comments</h2>
+            <div class="comment">
+                <span>User1 - Score1 - Date1</span>
+                <p>// User review 1.</p>
+            </div>
+            <div class="comment">
+                <span>User2 - Score2 - Date2</span>
+                <p>// User review 2.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
