@@ -18,13 +18,16 @@
         <a>Logout</a>
     </nav>
     <form class="pizza-add" action="some action" method="post" id="pizza-form">
-        <input type="text" placeholder="Name of the pizza">
-        <select form="pizza-form">
+        <label for="pizza-name">Name the pizza</label>
+        <input type="text" id="pizza-name" placeholder="Name of the pizza">
+        <label for="ingredient-select">Select ingredients</label>
+        <select form="pizza-form" id="ingredient-select">
             <option value="ingredient1">ingredient 1</option>
             <option value="ingredient2">ingredient 2</option>
             <option value="ingredient3">ingredient 3</option>
             <option value="ingredient4">ingredient 4</option>
         </select>
+        <label for="pizza-image">Upload the pizza image</label>
         <input type="file" accept="image/*" id="pizza-image">
         <input type="submit" value="Submit">
     </form>
