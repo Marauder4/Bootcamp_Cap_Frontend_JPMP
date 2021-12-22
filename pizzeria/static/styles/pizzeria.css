@@ -8,6 +8,7 @@
     display: flex;
     flex-flow: column;
     align-items: flex-start;
+    gap: 1em;
 }
 
 .app-nav__logo,
