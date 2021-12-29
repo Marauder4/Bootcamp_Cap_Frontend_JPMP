@@ -9,3 +9,5 @@ function createArray(numElements, value) {
   }
   return newArray;
 }
+
+console.log(createArray(4, "a"));
