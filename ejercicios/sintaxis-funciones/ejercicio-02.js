@@ -1,3 +1,8 @@
+/*
+Adivina el Número, generar un número entre el 0 y el 100, introducir un número e informar si es igual, mayor o menor.
+Hay un máximo de 10 intentos para encontrar el número que sea igual.
+*/
+
 function ranInt(min, max) {
   return min + Math.floor(Math.random() * (max - min + 1));
 }
