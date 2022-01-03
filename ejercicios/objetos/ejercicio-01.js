@@ -16,27 +16,27 @@ GuessNumber.prototype.resetTries = function () {
   this.tries = 0;
 };
 
-GuessNumber.prototype.makeAGuess = function (num) {
-  if (this.tries === this.maxTries) {
+function makeAGuess(game, guess) {
+  if (game.tries === game.maxTries) {
     console.log("Trial limit reached.");
     return;
   }
-  const userInput = parseInt(num);
-  this.tries++;
+  const userInput = parseInt(guess);
+  game.tries++;
   if (!userInput) {
     console.log("Input not valid.");
-  } else if (userInput < this.numToGuess) {
+  } else if (userInput < game.numToGuess) {
     console.log(`Your guess, ${userInput}, is too low! Try again!`);
-  } else if (userInput > this.numToGuess) {
+  } else if (userInput > game.numToGuess) {
     console.log(`Your guess, ${userInput}, is too high! Try again!`);
   } else {
     console.log(`Your guess, ${userInput}, is correct! Congrats!`);
   }
-};
+}
 
 const firstGame = new GuessNumber(ranInt(0, 100), 3);
-firstGame.makeAGuess(20);
-firstGame.makeAGuess(40);
-firstGame.makeAGuess(60);
+makeAGuess(firstGame, 20);
+makeAGuess(firstGame, 40);
+makeAGuess(firstGame, 60);
 firstGame.resetTries();
-firstGame.makeAGuess(80);
+makeAGuess(firstGame, 80);
