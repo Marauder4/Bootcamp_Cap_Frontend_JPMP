@@ -6,7 +6,7 @@ Ejemplo de palíndromo complejo: "La ruta nos aporto otro paso natural".
 
 function isPalindrome(text) {
   const textStraight = text.trim().split(" ").join("").toLowerCase();
-  const textReversed = text.trim().split(" ").join("").split("").reverse().join("").toLowerCase();
+  const textReversed = textStraight.split("").reverse().join("");
   return textStraight === textReversed;
 }
 
