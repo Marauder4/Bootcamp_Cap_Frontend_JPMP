@@ -2,7 +2,8 @@ let currentOperation = "";
 let currentResult = "";
 let firstNumber = "";
 let secondNumber = "";
-let operand = "";
+let operator = "";
+let operating = false;
 const numbersList = [];
 
 const operation = document.querySelector("#currentOp");
@@ -47,12 +48,31 @@ numbersList.push(
 
 for (let i = 0; i < numbersList.length; i++) {
   numbersList[i].addEventListener("click", () => {
-    currentResult += i;
-    output.textContent = currentResult;
+    if (!operating) {
+      currentResult += i;
+      output.textContent = currentResult;
+    } else {
+      currentResult = "";
+      currentResult += i;
+      output.textContent = currentResult;
+      operating = false;
+    }
   });
 }
 
+buttonCom.addEventListener("click", () => {
+  if (!currentResult.includes(".")) {
+    currentResult += ".";
+    output.textContent = currentResult;
+  }
+});
+
 buttonCE.addEventListener("click", () => {
+  if (secondNumber) {
+    secondNumber = "";
+    currentOperation = "";
+    operation.textContent = currentOperation;
+  }
   currentResult = "";
   output.textContent = currentResult;
 });
@@ -80,36 +100,53 @@ buttonSig.addEventListener("click", () => {
 });
 
 buttonEq.addEventListener("click", () => {
-  secondNumber = currentResult;
-  operation.textContent = currentOperation + secondNumber + "=";
-  currentResult = eval(firstNumber + operand + secondNumber).toString();
+  if (!operating && currentResult) {
+    secondNumber = currentResult;
+    operating = true;
+  } else if (operating && currentResult) {
+    firstNumber = currentResult;
+  }
+  currentResult = eval(firstNumber.concat(operator, secondNumber)).toString();
+  operation.textContent = firstNumber.concat(operator, secondNumber, "=");
   output.textContent = currentResult;
 });
 
 buttonAdd.addEventListener("click", () => {
   firstNumber = currentResult;
-  operand = "+";
-  currentOperation = firstNumber.concat(operand);
-  operation.textContent = currentOperation;
+  operator = "+";
+  operation.textContent = firstNumber.concat(operator);
+  operating = true;
 });
 
 buttonSub.addEventListener("click", () => {
   firstNumber = currentResult;
-  operand = "-";
-  currentOperation = firstNumber.concat(operand);
-  operation.textContent = currentOperation;
+  operator = "-";
+  operation.textContent = firstNumber.concat(operator);
+  operating = true;
 });
 
 buttonMul.addEventListener("click", () => {
   firstNumber = currentResult;
-  operand = "*";
-  currentOperation = firstNumber.concat(operand);
-  operation.textContent = currentOperation;
+  operator = "*";
+  operation.textContent = firstNumber.concat(operator);
+  operating = true;
 });
 
 buttonDiv.addEventListener("click", () => {
   firstNumber = currentResult;
-  operand = "/";
-  currentOperation = firstNumber.concat(operand);
-  operation.textContent = currentOperation;
+  operator = "/";
+  operation.textContent = firstNumber.concat(operator);
+  operating = true;
+});
+
+buttonInv.addEventListener("click", () => {
+  if (currentResult) {
+    firstNumber = "1";
+    operator = "/";
+    secondNumber = currentResult;
+    currentResult = eval(firstNumber.concat(operator, secondNumber)).toString();
+    operation.textContent = firstNumber.concat(operator, secondNumber, "=");
+    output.textContent = currentResult;
+    operating = true;
+  }
 });
