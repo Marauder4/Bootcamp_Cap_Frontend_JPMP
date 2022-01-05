@@ -150,3 +150,27 @@ buttonInv.addEventListener("click", () => {
     operating = true;
   }
 });
+
+buttonPow.addEventListener("click", () => {
+  if (currentResult) {
+    firstNumber = currentResult;
+    operator = "**";
+    secondNumber = "2";
+    currentResult = eval(firstNumber.concat(operator, secondNumber)).toString();
+    operation.textContent = firstNumber.concat("\u00B2", "=");
+    output.textContent = currentResult;
+    operating = true;
+  }
+});
+
+buttonSqr.addEventListener("click", () => {
+  if (currentResult) {
+    firstNumber = currentResult;
+    operator = "**";
+    secondNumber = "(1/2)";
+    currentResult = eval(firstNumber.concat(operator, secondNumber)).toString();
+    operation.textContent = "\u221A".concat(firstNumber, "=");
+    output.textContent = currentResult;
+    operating = true;
+  }
+});
