@@ -174,3 +174,12 @@ buttonSqr.addEventListener("click", () => {
     operating = true;
   }
 });
+
+buttonPer.addEventListener("click", () => {
+  if (currentResult && firstNumber) {
+    secondNumber = eval(firstNumber.concat("*0.01*", currentResult)).toString();
+    currentResult = secondNumber;
+    operation.textContent = firstNumber.concat(operator, secondNumber, "=");
+    output.textContent = currentResult;
+  }
+});
