@@ -5,31 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add pizza</title>
-    <link rel="stylesheet" href="static/styles/pizzeria.css">
+    <link rel="stylesheet" href="static/styles/style.css">
 </head>
 <body class="app-body">
-    <nav class="app-nav">
-        <div class="app-nav__logo">
-            <img src="static/images/pizzeria_128x192.jpg" alt="Pizzeria sign" width="128" height="192">
-            <h1>Pizzeria</h1>
-        </div>
-        <a href="pizzas-list.html">List of pizzas</a>
-        <a href="pizzas-add.html">Add pizza</a>
-        <a>Logout</a>
-    </nav>
-    <form class="pizza-add" action="some action" method="post" id="pizza-form">
-        <label for="pizza-name">Name the pizza</label>
-        <input type="text" id="pizza-name" placeholder="Name of the pizza">
-        <label for="ingredient-select">Select ingredients</label>
-        <select form="pizza-form" id="ingredient-select">
-            <option value="ingredient1">ingredient 1</option>
-            <option value="ingredient2">ingredient 2</option>
-            <option value="ingredient3">ingredient 3</option>
-            <option value="ingredient4">ingredient 4</option>
-        </select>
-        <label for="pizza-image">Upload the pizza image</label>
-        <input type="file" accept="image/*" id="pizza-image">
-        <input type="submit" value="Submit">
-    </form>
+    <header>
+        <a href="./index.html"><picture>
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.webp">
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.jpg">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.webp">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.jpg">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.webp">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.jpg">
+            <img src="static/images/pizzeria_placeholder_small.jpg" alt="Pizzeria image">
+        </picture></a>
+        <nav>
+            <a href="./index.html">Pizza Nostra</a>
+            <a href="./pizzas-list.html">List of pizzas</a>
+            <a href="./pizzas-add.html">Add pizza</a>
+            <a>Logout</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1 class="h1">Add a pizza</h1>
+        <form class="pizza-form">
+            <div>
+                <label for="pizza-name">Name the pizza:</label>
+                <input type="text" id="pizza-name" placeholder="Enter the name of the pizza">
+            </div>
+            <p>Select the ingredients:</p>
+            <div class="ingredient-list">
+                <div>
+                    <input type="checkbox" id="ingredient1" value="ingredient1">
+                    <label for="ingredient1">Ingredient 1</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient2" value="ingredient2">
+                    <label for="ingredient2">Ingredient 2</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient3" value="ingredient3">
+                    <label for="ingredient3">Ingredient 3</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient4" value="ingredient4">
+                    <label for="ingredient4">Ingredient 4</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient5" value="ingredient5">
+                    <label for="ingredient5">Ingredient 5</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient6" value="ingredient6">
+                    <label for="ingredient6">Ingredient 6</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient7" value="ingredient7">
+                    <label for="ingredient7">Ingredient 7</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient8" value="ingredient8">
+                    <label for="ingredient8">Ingredient 8</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient9" value="ingredient9">
+                    <label for="ingredient9">Ingredient 9</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ingredient10" value="ingredient10">
+                    <label for="ingredient10">Ingredient 10</label>
+                </div>
+            </div>
+            <div>
+                <label for="pizza-image">Upload the image:</label>
+                <input type="file" accept="image/*" id="pizza-image">
+            </div>
+            <input type="submit" value="Submit pizza">
+        </form>
+    </main>
 </body>
 </html>

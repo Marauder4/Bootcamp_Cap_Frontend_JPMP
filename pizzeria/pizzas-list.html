@@ -5,31 +5,147 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of pizzas</title>
-    <link rel="stylesheet" href="static/styles/pizzeria.css">
+    <link rel="stylesheet" href="static/styles/style.css">
 </head>
-<body class="app-body">
-    <nav class="app-nav">
-        <div class="app-nav__logo">
-            <img src="static/images/pizzeria_128x192.jpg" alt="Pizzeria sign" width="128" height="192">
-            <h1>Pizzeria</h1>
-        </div>
-        <a href="pizzas-list.html">List of pizzas</a>
-        <a href="pizzas-add.html">Add pizza</a>
-        <a>Logout</a>
-    </nav>
-    <section class="pizza-list">
-        <div class="pizza-list__pizza">
-            <h3><a href="pizzas-detail.html">Pizza1</a></h3>
-            <img src="static/images/pizza_160x106.jpg" alt="Pizza image" width="160" height="106">
-        </div>
-        <div class="pizza-list__pizza">
-            <h3><a href="pizzas-detail.html">Pizza2</a></h3>
-            <img src="static/images/pizza_160x106.jpg" alt="Pizza image" width="160" height="106">
-        </div>
-        <div class="pizza-list__pizza">
-            <h3><a href="pizzas-detail.html">Pizza3</a></h3>
-            <img src="static/images/pizza_160x106.jpg" alt="Pizza image" width="160" height="106">
-        </div>
-    </section>
+<body>
+    <header>
+        <a href="./index.html"><picture>
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.webp">
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.jpg">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.webp">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.jpg">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.webp">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.jpg">
+            <img src="static/images/pizzeria_placeholder_small.jpg" alt="Pizzeria image">
+        </picture></a>
+        <nav>
+            <a href="./index.html">Pizza Nostra</a>
+            <a href="./pizzas-list.html">List of pizzas</a>
+            <a href="./pizzas-add.html">Add pizza</a>
+            <a>Logout</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1 class="h1 visually-hidden">List of pizzas</h1>
+        <section class="pizza-list">
+            <article class="pizza">
+                <p>Pizza 1</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 7.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 2</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 8.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 3</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 9.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 4</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 10.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 5</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 11.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 6</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 12.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 7</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 13.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 8</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 14.99€</p>
+            </article>
+            <article class="pizza">
+                <p>Pizza 9</p>
+                <a href="./pizzas-detail.html"><picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture></a>
+                <p>Price: 15.99€</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

@@ -4,49 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza</title>
-    <link rel="stylesheet" href="static/styles/pizzeria.css">
+    <title>Detail of pizza</title>
+    <link rel="stylesheet" href="static/styles/style.css">
 </head>
-<body class="app-body">
-    <nav class="app-nav">
-        <div class="app-nav__logo">
-            <img src="static/images/pizzeria_128x192.jpg" alt="Pizzeria sign" width="128" height="192">
-            <h1>Pizzeria</h1>
-        </div>
-        <a href="pizzas-list.html">List of pizzas</a>
-        <a href="pizzas-add.html">Add pizza</a>
-        <a>Logout</a>
-    </nav>
-    <section class="pizza-detail">
-        <div class="pizza-detail__pizza-info">
-            <div class="pizza-list__pizza">
-                <h3>Pizza</h6>
-                <img src="static/images/pizza_160x106.jpg" alt="Pizza image" width="160" height="106">
-                <p>Price</p>
-            </div>
-            <div class="pizza-ingredients">
-                <h3>Ingredients</h2>
-                <p>Ingredient 1: price 1</p>
-                <p>Ingredient 2: price 2</p>
-            </div>
-        </div>
-        <form class="pizza-detail__comment-form" action="some action" method="post">
-            <h2>Leave your comment</h2>
-            <input type="number" placeholder="Score" min="0" max="10">
-            <textarea placeholder="Your review."></textarea>
-            <input type="submit" value="Submit">
-        </form>
-        <div class="pizza-detail__comment-list">
-            <h2>Comments</h2>
-            <div class="comment">
-                <span>User1 - Score1 - Date1</span>
-                <p>// User review 1.</p>
-            </div>
-            <div class="comment">
-                <span>User2 - Score2 - Date2</span>
-                <p>// User review 2.</p>
-            </div>
-        </div>
-    </section>
+<body>
+    <header>
+        <a href="./index.html"><picture>
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.webp">
+            <source media="(min-width:1024px)" srcset="static/images/pizzeria_placeholder_big.jpg">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.webp">
+            <source media="(min-width:768px)" srcset="static/images/pizzeria_placeholder_medium.jpg">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.webp">
+            <source media="(min-width:480px)" srcset="static/images/pizzeria_placeholder_small.jpg">
+            <img src="static/images/pizzeria_placeholder_small.jpg" alt="Pizzeria image">
+        </picture></a>
+        <nav>
+            <a href="./index.html">Pizza Nostra</a>
+            <a href="./pizzas-list.html">List of pizzas</a>
+            <a href="./pizzas-add.html">Add pizza</a>
+            <a>Logout</a>
+        </nav>
+    </header>
+    <main class="main main-detail">
+        <h1 class="h1 visually-hidden">Detail of pizza 1</h1>
+        <section class="pizza-info">
+            <article class="pizza">
+                <h2>Pizza 1</h2>
+                <picture>
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.webp">
+                    <source media="(min-width:1024px)" srcset="static/images/pizza_placeholder_big.jpg">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.webp">
+                    <source media="(min-width:768px)" srcset="static/images/pizza_placeholder_medium.jpg">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.webp">
+                    <source media="(min-width:480px)" srcset="static/images/pizza_placeholder_small.jpg">
+                    <img src="static/images/pizza_placeholder_small.jpg" alt="Pizza image">
+                </picture>
+                <p>Price: 7.99€</p>
+            </article>
+            <article class="ingredients">
+                <h2>Ingredients</h2>
+                <ul>
+                    <li>Ingredient 1</li>
+                    <li>Ingredient 2</li>
+                    <li>Ingredient 3</li>
+                </ul>
+            </article>
+        </section>
+        <section class="add-comment">
+            <h2>Add comment</h2>
+            <form class="comment-form">
+                <label for="comment-text">Leave your comment:</label>
+                <textarea id="comment-text" placeholder="Please, tell us what you think!"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section class="comment-section">
+            <h2>Comment section</h2>
+            <article class="comment">
+                <p>By John on January 6, 2022:</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam deserunt consectetur quia labore voluptatem laboriosam architecto ea commodi nulla iure autem, voluptate minus exercitationem, repellat reiciendis fugiat possimus optio accusamus odit fugit non cupiditate voluptas illo? Aperiam accusantium quibusdam, odio inventore vitae molestiae. Unde libero sapiente numquam est delectus deserunt!</p>
+            </article>
+            <article class="comment">
+                <p>By Jane on December 28, 2021:</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque doloribus accusantium officia sed omnis, tenetur numquam labore. Ad sapiente dolorem non corrupti rerum culpa, dolor aperiam dolorum assumenda sequi itaque quia harum nisi deserunt doloribus ullam repellat molestias ipsa numquam debitis voluptate praesentium. Incidunt omnis, animi repellendus quae libero maiores.</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
