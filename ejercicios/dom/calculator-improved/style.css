@@ -38,7 +38,7 @@ body {
   background-color: cornflowerblue;
   border: 2px solid black;
   border-radius: 1rem;
-  box-shadow: 2px 4px;
+  box-shadow: 4px 6px;
 }
 
 .display {
@@ -53,7 +53,7 @@ body {
   background-color: lightblue;
   border: 2px solid black;
   border-radius: 1rem;
-  box-shadow: -1px -2px;
+  box-shadow: -2px -3px;
 }
 
 .operation,
@@ -79,6 +79,9 @@ body {
 
 .button:hover {
   background-color: lightskyblue;
+}
+
+.button:active {
   box-shadow: none;
 }
 
@@ -87,5 +90,5 @@ body {
   background-color: lightblue;
   border: 2px solid black;
   border-radius: 0.5rem;
-  box-shadow: 1px 2px;
+  box-shadow: 2px 3px;
 }
