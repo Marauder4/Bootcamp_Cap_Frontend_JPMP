@@ -1,6 +1,10 @@
 describe("Pruebas ejercicio-04", function () {
   describe("Prueba isPrime(num)", function () {
     let output;
+    const primesOneToHun = [
+      2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 53, 59, 61, 67, 71,
+      73, 79, 83, 89, 97,
+    ];
 
     [
       { num: 1, descr: "Admite números positivos" },
@@ -11,6 +15,15 @@ describe("Pruebas ejercicio-04", function () {
         output = isPrime(test.num);
         expect(output).toBeInstanceOf(Boolean);
       });
+    });
+
+    it("Identifica bien los primos", function () {
+      let correct = true;
+      for (prime of primesOneToHun) {
+        if (!isPrime(prime)) correct = false;
+        break;
+      }
+      expect(correct).toBeTrue();
     });
   });
 
