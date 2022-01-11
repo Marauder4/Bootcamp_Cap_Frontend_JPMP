@@ -11,7 +11,7 @@ describe("Prueba ejercicio-03 createArray(numElements, value)", function () {
   ].forEach((test) => {
     it(test.descr, function () {
       output = createArray(test.numElements, test.value);
-      expect(Array.isArray(output)).toBeTrue();
+      expect(output).toBeInstanceOf(Array);
       expect(output.length).toBe(0);
     });
   });
@@ -20,7 +20,7 @@ describe("Prueba ejercicio-03 createArray(numElements, value)", function () {
     numElements = 4;
     value = undefined;
     output = createArray(numElements, value);
-    expect(Array.isArray(output)).toBeTrue();
+    expect(output).toBeInstanceOf(Array);
     expect(output.length).toBe(numElements);
   });
 
@@ -30,7 +30,7 @@ describe("Prueba ejercicio-03 createArray(numElements, value)", function () {
   ].forEach((test) => {
     it(test.descr, function () {
       output = createArray(test.numElements, test.value);
-      expect(Array.isArray(output)).toBeTrue();
+      expect(output).toBeInstanceOf(Array);
       expect(typeof output[0]).toBe(typeof test.value);
     });
   });
