@@ -155,18 +155,22 @@ class Calculator {
   }
 
   resolve() {
-    if (!this.secondOperand) this.secondOperand = this.output;
-    if (this.resolved) this.currentResult = this.output;
-    this.output = calculate(
-      this.currentResult,
-      this.secondOperand,
-      this.operator
-    );
-    this.operation = this.currentResult.concat(
-      this.operator,
-      this.secondOperand,
-      "="
-    );
+    if (this.operator) {
+      if (!this.secondOperand) this.secondOperand = this.output;
+      if (this.resolved) this.currentResult = this.output;
+      this.output = calculate(
+        this.currentResult,
+        this.secondOperand,
+        this.operator
+      );
+      this.operation = this.currentResult.concat(
+        this.operator,
+        this.secondOperand,
+        "="
+      );
+    } else {
+      this.operation = this.output.concat("=");
+    }
     this.resolved = true;
     this.updateDisplay();
   }
