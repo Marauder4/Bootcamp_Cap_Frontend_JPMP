@@ -86,6 +86,7 @@ class Calculator {
 
   appendPeriod() {
     if (this.resolved) this.clearAll();
+    if (this.operating) this.output = "0";
     if (!this.output.includes(".")) this.output += ".";
     this.newInput = false;
     this.updateDisplay();
