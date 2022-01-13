@@ -114,14 +114,18 @@ class Calculator {
   }
 
   percentage() {
-    if (!this.currentResult) return;
-    const percentage = calculate(this.output, "100", "÷");
-    this.secondOperand = calculate(this.currentResult, percentage, "*");
-    this.operation = this.currentResult.concat(
-      this.operator,
-      this.secondOperand
-    );
-    this.output = this.secondOperand;
+    if (this.currentResult) {
+      const percentage = calculate(this.output, "100", "÷");
+      this.secondOperand = calculate(this.currentResult, percentage, "*");
+      this.operation = this.currentResult.concat(
+        this.operator,
+        this.secondOperand
+      );
+      this.output = this.secondOperand;
+    } else {
+      this.operation = "0";
+      this.output = "0";
+    }
     this.updateDisplay();
   }
 
