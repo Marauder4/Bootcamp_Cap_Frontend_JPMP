@@ -44,5 +44,60 @@
       </section>
     </main>
     <script src="calculator.js"></script>
+    <script>
+      (function () {
+        const operationDisplay = document.querySelector("[data-operation]");
+        const outputDisplay = document.querySelector("[data-output]");
+
+        function display(operation, output) {
+          operationDisplay.textContent = operation;
+          outputDisplay.textContent = output;
+        }
+
+        const calculator = new Calculator(display, calculate);
+        calculator.updateDisplay();
+
+        document.querySelectorAll("[data-number]").forEach((button) => {
+          button.addEventListener("click", () =>
+            calculator.appendNumber(button.textContent)
+          );
+        });
+        document
+          .querySelector("[data-period]")
+          .addEventListener("click", () => calculator.appendPeriod());
+        document
+          .querySelector("[data-inverse]")
+          .addEventListener("click", () => calculator.inverse());
+        document
+          .querySelector("[data-squared]")
+          .addEventListener("click", () => calculator.squared());
+        document
+          .querySelector("[data-squared-root]")
+          .addEventListener("click", () => calculator.squaredRoot());
+        document
+          .querySelector("[data-percentage]")
+          .addEventListener("click", () => calculator.percentage());
+        document.querySelectorAll("[data-operator]").forEach((button) => {
+          button.addEventListener("click", () =>
+            calculator.operate(button.textContent)
+          );
+        });
+        document
+          .querySelector("[data-sign]")
+          .addEventListener("click", () => calculator.changeSign());
+        document
+          .querySelector("[data-equals]")
+          .addEventListener("click", () => calculator.resolve());
+        document
+          .querySelector("[data-delete]")
+          .addEventListener("click", () => calculator.delete());
+        document
+          .querySelector("[data-clear-entry]")
+          .addEventListener("click", () => calculator.clearEntry());
+        document
+          .querySelector("[data-clear-all]")
+          .addEventListener("click", () => calculator.clearAll());
+      })();
+    </script>
   </body>
 </html>

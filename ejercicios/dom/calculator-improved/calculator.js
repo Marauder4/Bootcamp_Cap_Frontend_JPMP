@@ -24,41 +24,11 @@ function calculate(firstNumber, lastNumber, operator) {
 }
 
 class Calculator {
-  constructor() {
-    this.operationDisplay = document.querySelector("[data-operation]");
-    this.outputDisplay = document.querySelector("[data-output]");
-    this.numberButtons = document.querySelectorAll("[data-number]");
-    this.periodButton = document.querySelector("[data-period]");
-    this.inverseButton = document.querySelector("[data-inverse]");
-    this.squaredButton = document.querySelector("[data-squared]");
-    this.squaredRootButton = document.querySelector("[data-squared-root]");
-    this.percentageButton = document.querySelector("[data-percentage]");
-    this.operatorButtons = document.querySelectorAll("[data-operator]");
-    this.signButton = document.querySelector("[data-sign]");
-    this.equalsButton = document.querySelector("[data-equals]");
-    this.deleteButton = document.querySelector("[data-delete]");
-    this.clearEntryButton = document.querySelector("[data-clear-entry]");
-    this.clearAllButton = document.querySelector("[data-clear-all]");
-
-    this.numberButtons.forEach((button) => {
-      button.addEventListener("click", () =>
-        this.appendNumber(button.textContent)
-      );
-    });
-    this.periodButton.addEventListener("click", () => this.appendPeriod());
-    this.inverseButton.addEventListener("click", () => this.inverse());
-    this.squaredButton.addEventListener("click", () => this.squared());
-    this.squaredRootButton.addEventListener("click", () => this.squaredRoot());
-    this.percentageButton.addEventListener("click", () => this.percentage());
-    this.operatorButtons.forEach((button) => {
-      button.addEventListener("click", () => this.operate(button.textContent));
-    });
-    this.signButton.addEventListener("click", () => this.changeSign());
-    this.equalsButton.addEventListener("click", () => this.resolve());
-    this.deleteButton.addEventListener("click", () => this.delete());
-    this.clearEntryButton.addEventListener("click", () => this.clearEntry());
-    this.clearAllButton.addEventListener("click", () => this.clearAll());
-
+  constructor(displayFunction, calculateFunction) {
+    if (!displayFunction || typeof displayFunction !== "function")
+      throw new TypeError("Unacceptable display function");
+    if (!calculateFunction || typeof calculateFunction !== "function")
+      throw new TypeError("Unacceptable calculate function");
     this.operation = "";
     this.output = "0";
     this.currentResult = "";
@@ -67,8 +37,8 @@ class Calculator {
     this.newInput = true;
     this.operating = false;
     this.resolved = false;
-
-    this.updateDisplay();
+    this.displayFunction = displayFunction;
+    this.calculateFunction = calculateFunction;
   }
 
   appendNumber(input) {
@@ -94,7 +64,7 @@ class Calculator {
 
   inverse() {
     this.operation = "1/".concat(this.output);
-    this.output = calculate("1", this.output, "÷");
+    this.output = this.calculateFunction("1", this.output, "÷");
     this.resolved = true;
     this.updateDisplay();
   }
@@ -115,8 +85,12 @@ class Calculator {
 
   percentage() {
     if (this.currentResult) {
-      const percentage = calculate(this.output, "100", "÷");
-      this.secondOperand = calculate(this.currentResult, percentage, "*");
+      const percentage = this.calculateFunction(this.output, "100", "÷");
+      this.secondOperand = this.calculateFunction(
+        this.currentResult,
+        percentage,
+        "*"
+      );
       this.operation = this.currentResult.concat(
         this.operator,
         this.secondOperand
@@ -133,7 +107,7 @@ class Calculator {
     if ((!this.operating && !this.currentResult) || this.resolved) {
       this.currentResult = this.output;
     } else if (!this.operating && this.currentResult) {
-      this.currentResult = calculate(
+      this.currentResult = this.calculateFunction(
         this.currentResult,
         this.output,
         this.operator
@@ -150,7 +124,7 @@ class Calculator {
   }
 
   changeSign() {
-    this.output = calculate("-1", this.output, "*");
+    this.output = this.calculateFunction("-1", this.output, "*");
     this.updateDisplay();
   }
 
@@ -158,7 +132,7 @@ class Calculator {
     if (this.operator) {
       if (!this.secondOperand) this.secondOperand = this.output;
       if (this.resolved) this.currentResult = this.output;
-      this.output = calculate(
+      this.output = this.calculateFunction(
         this.currentResult,
         this.secondOperand,
         this.operator
@@ -208,9 +182,6 @@ class Calculator {
   }
 
   updateDisplay() {
-    this.operationDisplay.textContent = this.operation;
-    this.outputDisplay.textContent = this.output;
+    this.displayFunction(this.operation, this.output);
   }
 }
-
-const calculator = new Calculator();
