@@ -1,8 +1,8 @@
 function calculate(firstNumber, lastNumber, operator) {
   let result = 0;
   const cf = 10;
-  firstNumber = parseFloat(firstNumber);
-  lastNumber = parseFloat(lastNumber);
+  firstNumber = parseFloat(firstNumber.replace(",", "."));
+  lastNumber = parseFloat(lastNumber.replace(",", "."));
   if (isNaN(firstNumber) || isNaN(lastNumber)) return;
   switch (operator) {
     case "+":
@@ -20,7 +20,7 @@ function calculate(firstNumber, lastNumber, operator) {
     default:
       return;
   }
-  return result.toString();
+  return result.toString().replace(".", ",");
 }
 
 class Calculator {
@@ -57,7 +57,7 @@ class Calculator {
   appendPeriod() {
     if (this.resolved) this.clearAll();
     if (this.operating) this.output = "0";
-    if (!this.output.includes(".")) this.output += ".";
+    if (!this.output.includes(",")) this.output += ",";
     this.newInput = false;
     this.updateDisplay();
   }
@@ -71,14 +71,18 @@ class Calculator {
 
   squared() {
     this.operation = this.output.concat("²");
-    this.output = Math.pow(this.output, 2).toString();
+    this.output = Math.pow(this.output.replace(",", "."), 2)
+      .toString()
+      .replace(".", ",");
     this.resolved = true;
     this.updateDisplay();
   }
 
   squaredRoot() {
     this.operation = "√".concat(this.output);
-    this.output = Math.sqrt(this.output).toString();
+    this.output = Math.sqrt(this.output.replace(",", "."))
+      .toString()
+      .replace(".", ",");
     this.resolved = true;
     this.updateDisplay();
   }
