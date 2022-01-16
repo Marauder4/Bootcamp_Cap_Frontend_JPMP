@@ -310,6 +310,7 @@ describe("Testing 'calculator.js'", function () {
         calculator.percentage();
         expect(calculator.operation).toBe("0");
         expect(calculator.output).toBe("0");
+        expect(calculator.newInput).toBeTrue();
         expect(calculator.updateDisplay).toHaveBeenCalled();
       });
     });

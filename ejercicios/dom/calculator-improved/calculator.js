@@ -103,6 +103,7 @@ class Calculator {
     } else {
       this.operation = "0";
       this.output = "0";
+      this.newInput = true;
     }
     this.updateDisplay();
   }
