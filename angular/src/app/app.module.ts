@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonComponentModule } from './common-component';
 import { CommonServicesModule } from './common-services';
-import { MainModule } from './main';
-import { SecurityModule } from './security';
+import { AjaxWaitInterceptor, MainModule } from './main';
+import { AuthInterceptor, SecurityModule } from './security';
 import { DemosComponent } from './demos/demos.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { ContactosModule } from './contactos';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,13 @@ import { FormularioComponent } from './formulario/formulario.component';
     CommonComponentModule,
     MyCoreModule,
     CommonServicesModule,
+    ContactosModule,
   ],
   providers: [
     LoggerService,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+    { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent],
 })
