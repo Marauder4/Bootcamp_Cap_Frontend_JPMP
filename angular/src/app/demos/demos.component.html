@@ -63,3 +63,10 @@
 <p [style.font-size.px]="fontSize">
   {{ listado | json }}
 </p>
+
+<app-form-buttons
+  (send)="saluda()"
+  [send-text]="'aceptar'"
+  (cancel)="saluda()"
+  (delete)="saluda()"
+></app-form-buttons>

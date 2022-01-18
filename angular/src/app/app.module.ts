@@ -12,12 +12,14 @@ import { MainModule } from './main';
 import { SecurityModule } from './security';
 import { DemosComponent } from './demos/demos.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemosComponent,
-    DinamicoComponent
+    DinamicoComponent,
+    FormularioComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,12 +29,12 @@ import { DinamicoComponent } from './dinamico/dinamico.component';
     SecurityModule,
     CommonComponentModule,
     MyCoreModule,
-    CommonServicesModule
+    CommonServicesModule,
   ],
   providers: [
     LoggerService,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
