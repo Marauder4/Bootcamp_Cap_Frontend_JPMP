@@ -14,7 +14,7 @@ import { DemosComponent } from './demos/demos.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ContactosModule } from './contactos';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FormularioComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
