@@ -34,39 +34,25 @@ export abstract class RESTDAOService<T, K> {
   }
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ContactosDAOService extends RESTDAOService<any, any> {
-  constructor(http: HttpClient) {
-    super(http, 'contactos', {
-      context: new HttpContext().set(AUTH_REQUIRED, true),
-    });
-  }
-}
-
-@Injectable({
-  providedIn: 'root',
-})
-export class ContactosViewModelService {
+export abstract class ViewModelServiceBase<T, K> {
   protected modo: ModoCRUD = 'list';
-  protected listado: Array<any> = [];
-  protected elemento: any = {};
-  protected idOriginal: any = null;
+  protected listado: Array<T> = [];
+  protected elemento: T | null = null;
+  protected idOriginal: K | null = null;
 
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService
+    protected dao: RESTDAOService<T, K>
   ) {}
 
   public get Modo(): ModoCRUD {
     return this.modo;
   }
-  public get Listado(): Array<any> {
+  public get Listado(): Array<T> {
     return this.listado;
   }
-  public get Elemento(): any {
+  public get Elemento(): T | null {
     return this.elemento;
   }
 
@@ -81,11 +67,11 @@ export class ContactosViewModelService {
   }
 
   public add(): void {
-    this.elemento = {};
+    this.elemento = null;
     this.modo = 'add';
   }
 
-  public edit(key: any): void {
+  public edit(key: K): void {
     this.dao.get(key).subscribe({
       next: (data) => {
         this.elemento = data;
@@ -96,7 +82,7 @@ export class ContactosViewModelService {
     });
   }
 
-  public view(key: any): void {
+  public view(key: K): void {
     this.dao.get(key).subscribe({
       next: (data) => {
         this.elemento = data;
@@ -106,7 +92,7 @@ export class ContactosViewModelService {
     });
   }
 
-  public delete(key: any): void {
+  public delete(key: K): void {
     if (!window.confirm('¿Seguro?')) {
       return;
     }
@@ -117,13 +103,13 @@ export class ContactosViewModelService {
   }
 
   clear() {
-    this.elemento = {};
+    this.elemento = null;
     this.idOriginal = null;
     this.listado = [];
   }
 
   public cancel(): void {
-    this.elemento = {};
+    this.elemento = null;
     this.idOriginal = null;
     this.list();
   }
@@ -131,20 +117,46 @@ export class ContactosViewModelService {
   public send(): void {
     switch (this.modo) {
       case 'add':
-        this.dao.add(this.elemento).subscribe({
-          next: (data) => this.cancel(),
-          error: (err) => this.notify.add(err.message),
-        });
+        if (this.elemento)
+          this.dao.add(this.elemento).subscribe({
+            next: (data) => this.cancel(),
+            error: (err) => this.notify.add(err.message),
+          });
         break;
       case 'edit':
-        this.dao.change(this.idOriginal, this.elemento).subscribe({
-          next: (data) => this.cancel(),
-          error: (err) => this.notify.add(err.message),
-        });
+        if (this.idOriginal && this.elemento)
+          this.dao.change(this.idOriginal, this.elemento).subscribe({
+            next: (data) => this.cancel(),
+            error: (err) => this.notify.add(err.message),
+          });
         break;
       case 'view':
         this.cancel();
         break;
     }
+  }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ContactosDAOService extends RESTDAOService<any, any> {
+  constructor(http: HttpClient) {
+    super(http, 'contactos', {
+      context: new HttpContext().set(AUTH_REQUIRED, true),
+    });
+  }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ContactosViewModelService extends ViewModelServiceBase<any, any> {
+  constructor(
+    notify: NotificationService,
+    out: LoggerService,
+    dao: ContactosDAOService
+  ) {
+    super(notify, out, dao);
   }
 }
